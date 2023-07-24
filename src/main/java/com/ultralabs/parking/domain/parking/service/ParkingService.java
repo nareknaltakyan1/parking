@@ -8,7 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 import java.time.Instant;
+import java.time.ZoneId;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -28,8 +30,8 @@ public class ParkingService {
     }
 
     private void setBookingInfo(final ParkingBookDetails details, final Parking parking) {
-        parking.setBookedFrom(Instant.from(details.getBookedFrom()));
-        parking.setBookedTo(Instant.from(details.getBookedTo()));
+        parking.setBookedFrom(details.getBookedFrom());
+        parking.setBookedTo(details.getBookedTo());
         parking.setUserId(details.getUserId());
     }
 

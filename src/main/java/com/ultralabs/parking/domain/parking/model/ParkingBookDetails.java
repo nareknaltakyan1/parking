@@ -3,6 +3,7 @@ package com.ultralabs.parking.domain.parking.model;
 import lombok.Builder;
 import lombok.Value;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 //import static org.springframework.util.Assert.notNull;

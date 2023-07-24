@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.Instant;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -18,13 +19,13 @@ public class Parking {
     @Column
     private Long id;
 
-    @Column
+    @Column(name = "userid")
     private Long userId;
 
-    @Column
-    private Instant bookedFrom;
+    @Column(name = "bookedfrom")
+    private LocalDateTime bookedFrom;
 
-    @Column
-    private Instant bookedTo;
+    @Column(name = "bookedto")
+    private LocalDateTime bookedTo;
 
 }

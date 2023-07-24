@@ -20,17 +20,17 @@ import java.util.List;
 public interface ParkingApi {
 
     @GetMapping
-    ResponseEntity<List<ParkingResponseDto>> getParkingList(@RequestParam final Boolean onlyFrees);
+    ResponseEntity<List<ParkingResponseDto>> getParkingList(@RequestParam(name = "onlyFrees", required = false, defaultValue = "false") final Boolean onlyFrees);
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Book parking",
             description = "Books a parking based on a parking state")
     ResponseEntity<ParkingResponseDto> book(@RequestBody final ParkingBookRequestDto requestDto);
 
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<?> park();
-
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<?> release();
+//    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+//    ResponseEntity<?> park();
+//
+//    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+//    ResponseEntity<?> release();
 
 }

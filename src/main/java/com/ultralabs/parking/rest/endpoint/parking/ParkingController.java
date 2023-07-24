@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -21,7 +22,12 @@ public class ParkingController implements ParkingApi {
 
     @Override
     public ResponseEntity<List<ParkingResponseDto>> getParkingList(final Boolean onlyFrees) {
-        return null;
+        return ResponseEntity.ok(List.of(ParkingResponseDto.builder()
+                .withId(1l)
+                .withUserId(1l)
+                .withBookedFrom(LocalDateTime.now())
+                .withBookedTo(LocalDateTime.now())
+                .build()));
     }
 
     @Override
@@ -31,13 +37,13 @@ public class ParkingController implements ParkingApi {
         return ResponseEntity.ok(parkingConverter.convertEntityToResponseDto(parking));
     }
 
-    @Override
-    public ResponseEntity<?> park() {
-        return null;
-    }
-
-    @Override
-    public ResponseEntity<?> release() {
-        return null;
-    }
+//    @Override
+//    public ResponseEntity<?> park() {
+//        return null;
+//    }
+//
+//    @Override
+//    public ResponseEntity<?> release() {
+//        return null;
+//    }
 }
